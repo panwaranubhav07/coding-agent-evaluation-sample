@@ -1,0 +1,22 @@
+[
+  {
+    "id": "exact-duplicates",
+    "input": "id,name,status\n001,Ari,open\n001,Ari,open\n002,Bo,closed\n",
+    "expected": "id,name,status\n001,Ari,open\n002,Bo,closed\n"
+  },
+  {
+    "id": "same-id-different-status",
+    "input": "id,name,status\n001,Ari,open\n001,Ari,closed\n",
+    "expected": "id,name,status\n001,Ari,open\n001,Ari,closed\n"
+  },
+  {
+    "id": "preserve-whitespace-and-leading-zeros",
+    "input": "id,name,status\n001,Ari,open\n1,Ari,open\n001,Ari ,open\n",
+    "expected": "id,name,status\n001,Ari,open\n1,Ari,open\n001,Ari ,open\n"
+  },
+  {
+    "id": "valid-empty-cell",
+    "input": "id,name,status\n001,,open\n001,,open\n002,Bo,closed\n",
+    "expected": "id,name,status\n001,,open\n002,Bo,closed\n"
+  }
+]
